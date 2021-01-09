@@ -1,0 +1,14 @@
+# Byte-compiled
+*.py[cod]
+
+# Pytest
+__pycache__/
+.pytest_cache
+env/*
+
+# Unittest
+.cache
+
+.idea
+.pycharm
+.python-version
