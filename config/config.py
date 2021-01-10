@@ -13,3 +13,5 @@ class TestData:
     LOGIN_PAGE_TITLE = "Открытое образование - Login"
     HOME_PAGE_TITLE = "Открытое образование - Главная страница"
 
+    SLOGAN = "Курсы ведущих вузов России"
+

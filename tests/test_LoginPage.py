@@ -1,5 +1,5 @@
-from config import TestData
-from pages import LoginPage
+from config.config import TestData
+from pages.LoginPage import LoginPage
 from tests.test_Base import BaseTest
 
 
