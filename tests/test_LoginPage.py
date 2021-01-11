@@ -18,4 +18,5 @@ class Test_LoginPage(BaseTest):
     def test_login(self):
         self.loginPage = LoginPage(self.driver)
         self.loginPage.do_login(TestData.LOGIN, TestData.PASSWORD)
+        assert self.loginPage.is_profile_icon_exist()
 

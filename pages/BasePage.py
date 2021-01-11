@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 """This class is the parent of all pages"""
 
+
 class BasePage:
 
     def __init__(self, driver):
@@ -14,7 +15,7 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
 
     def do_send_keys(self, by_locator, text):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys()
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
     def get_element_text(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
