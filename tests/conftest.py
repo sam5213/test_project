@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 
 from config import TestData
+from pages.LoginPage import LoginPage
 
 
 @pytest.fixture(params=["chrome"], scope='class')
@@ -14,3 +15,10 @@ def init_driver(request):
     yield
     web_driver.close()
 
+
+@pytest.fixture(scope='function')
+def prepare_page(request):
+    login_page = LoginPage(request.cls.driver)
+    home_page = login_page.do_login(TestData.LOGIN, TestData.PASSWORD)
+    yield home_page
+    login_page.do_logout()
