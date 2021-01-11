@@ -12,6 +12,7 @@ class LoginPage(BasePage):
     LOGIN_BUTTON = (By.ID, "auth_form_sub")
     SIGNUP_LINK = (By.XPATH, "//div//div[2]//a")
     PROFILE_ICON = (By.CSS_SELECTOR, "span.icon.profile-icon")
+    LOGOUT_LINK = (By.LINK_TEXT, "Logout")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -30,5 +31,9 @@ class LoginPage(BasePage):
         return HomePage(self.driver)
 
     def is_profile_icon_exist(self):
-        return self.is_enabled(self.PROFILE_ICON)
+            return self.is_enabled(self.PROFILE_ICON)
 
+    def do_logout(self):
+        if self.is_profile_icon_exist():
+            self.do_click(self.PROFILE_ICON)
+            self.do_click(self.LOGOUT_LINK)
