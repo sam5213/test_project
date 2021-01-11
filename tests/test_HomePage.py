@@ -2,21 +2,20 @@ from config.config import TestData
 from pages.LoginPage import LoginPage
 from tests.test_Base import BaseTest
 
-class Test_Home(BaseTest):
+
+class TestHomePage(BaseTest):
 
     def test_home_page_title(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.LOGIN, TestData.PASSWORD)
-        title = homePage.get_home_page_title(TestData.HOME_PAGE_TITLE)
+        login_page = LoginPage(self.driver)
+        home_page = login_page.do_login(TestData.LOGIN, TestData.PASSWORD)
+        title = home_page.get_home_page_title(TestData.HOME_PAGE_TITLE)
         assert title == TestData.HOME_PAGE_TITLE
+        login_page.do_logout()
 
     def test_home_page_slogan(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.LOGIN, TestData.PASSWORD)
-        slogan = homePage.get_slogan_value()
+        login_page = LoginPage(self.driver)
+        home_page = login_page.do_login(TestData.LOGIN, TestData.PASSWORD)
+        slogan = home_page.get_slogan_value()
         assert slogan == TestData.SLOGAN
+        login_page.do_logout()
 
-    def test_profile_icon(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.LOGIN, TestData.PASSWORD)
-        assert homePage.is_setting_icon_exist()

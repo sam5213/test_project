@@ -3,6 +3,7 @@ from selenium import webdriver
 
 from config import TestData
 
+
 @pytest.fixture(params=["chrome"], scope='class')
 def init_driver(request):
     if request.param == "chrome":
@@ -12,3 +13,4 @@ def init_driver(request):
     request.cls.driver = web_driver
     yield
     web_driver.close()
+
